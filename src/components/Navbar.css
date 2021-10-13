@@ -1,0 +1,9 @@
+.collapse {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link span {
+    color: #fc3c44;
+}
+

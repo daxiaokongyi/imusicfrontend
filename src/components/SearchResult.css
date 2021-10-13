@@ -1,0 +1,80 @@
+.container {
+    padding: 0.6rem;
+    margin: 0.3rem auto;
+}
+
+.category {
+    padding: 0.6rem 0;
+    margin: 1rem 0;
+    border: #f94c57 0.1rem solid;
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.3rem #c2cad7; 
+}
+
+.card {
+    width: 12rem;
+    height: 12rem;
+    padding: 0.1rem;
+    margin: 0.5rem 0.5rem;
+    box-shadow: 0.15rem 0.15rem #c2cad7; 
+}
+
+.image {
+    height: 8rem;
+    width: 8rem;
+    display: block;
+    margin: auto;
+    border-radius: 0.3rem;
+}
+
+.artistImage {
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+}
+
+.videoImage {
+    border-radius: 0.3rem;
+}
+
+.artistImage:hover {
+    filter: brightness(70%);
+}
+
+.videoImage:hover {
+    filter: brightness(70%);
+}
+
+.image:hover {
+    /* opacity: 0;
+    background-color: rgba(0,0,0,.5); */
+    filter: brightness(70%);
+}
+
+
+.card-text {
+    text-align: center;
+    margin: 0.2rem 0;
+}
+
+span {
+    color: rgba(0, 0, 0, 0.88);
+}
+
+.text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.not-found {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-weight: 600;
+    transform: translate(-50%, -50%);
+}

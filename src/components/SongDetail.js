@@ -82,7 +82,7 @@ const SongDetail = () => {
                 <p><b>Composer Name</b>: {songDetail.attributes && songDetail.attributes.composerName}</p>
                 <p><b>Album Name:</b> {songDetail.attributes && songDetail.attributes.albumName}</p>
                 <p><b>Release Date:</b> {songDetail.attributes && songDetail.attributes.releaseDate}</p>
-                <p><b>Genre Name:</b> {songDetail.attributes && songDetail.attributes.genreNames.map(each => (<span>{each} </span>))}</p>
+                <p><b>Genre Name:</b> {songDetail.attributes && songDetail.attributes.genreNames.map(each => (<span key={each}>{each}</span>))}</p>
             </div>
             <div>
                 {faved 

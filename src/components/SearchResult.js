@@ -171,7 +171,7 @@ const SearchResult = () => {
                     </div>
                     <div className="d-flex flex-wrap">
                         {playlists.map(playlist => (
-                            <div key={playlist.playlistName}>
+                            <div key={playlist.playlistId}>
                                 <div className="card">
                                 {/* <div className="card" style={{width : "18rem"}}> */}
                                     <div className="card-body">

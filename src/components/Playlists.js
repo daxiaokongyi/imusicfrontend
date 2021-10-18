@@ -28,7 +28,7 @@ const Playlists = () => {
 
     const showTableBody = (playlistResults) => {
         return playlistResults.map((playlist, key) => (
-            <tbody>
+            <tbody key={playlist.id}>
                 <tr className="table-content">
                     <th scope="row">{key + 1}</th>
                     <td>{makeImageTag(playlist.attributes.artwork.url)}</td>

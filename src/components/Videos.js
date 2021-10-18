@@ -29,7 +29,7 @@ const Videos = () => {
 
     const showTableBody = (videoResults) => {
         return videoResults.map((video, key) => (
-            <tbody>
+            <tbody key={video.id}>
                 <tr className="table-content">
                     <th scope="row">{key + 1}</th>
                     <td>{makeVideoImageTag(video.attributes.artwork.url)}</td>

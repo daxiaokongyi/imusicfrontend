@@ -21,7 +21,6 @@ const SearchResult = () => {
     const notfound = useSelector(st => st.songs.notfound);
 
     useEffect(() => {
-        setIsLoading(true);
         dispatch(fetchSongsFromAPI(searchTerm));
         setIsLoading(false);
     }, [searchTerm, dispatch]);

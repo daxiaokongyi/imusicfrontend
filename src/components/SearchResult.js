@@ -78,14 +78,15 @@ const SearchResult = () => {
                             <div key={artist.artistId}>
                                 <div className="card">
                                     <div className="card-body">
-                                        <div>
+                                        <div className="artists-img">
                                             <a href={`${artist.artistUrl}`} style= {{textDecoration : "none"}} target="_blank" rel="noreferrer">
-                                                {artist.artistImageUrl ? makeArtistImageTag(artist.artistImageUrl) : <img src={defaultImage} alt="artist" className="artistImage"/>}
+                                                {artist.artistImageUrl ? makeArtistImageTag(artist.artistImageUrl): <img src={defaultImage} alt="artist" className="artistImage"/>}   
                                             </a>
-                                            <p className="text">
-                                                <span>{artist.artistName}</span>
-                                            </p>
+                                            <span>Check the details on Apple Music</span>
                                         </div>
+                                        <p className="text">
+                                            <span>{artist.artistName}</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +114,10 @@ const SearchResult = () => {
                                     <div className="card-body">
                                         <div className="card-text">
                                             <NavLink to={`/song/${song.songId}`} style={{textDecoration: "none"}}> 
-                                                {makeImageTag(song.songImageUrl)}
+                                                <div className="songs-img">
+                                                    {makeImageTag(song.songImageUrl)}
+                                                    <span>Check and add this song to Favorites</span>
+                                                </div>
                                             </NavLink>     
                                             <p className="text"><span>{song.songName}</span></p>
                                         </div>
@@ -144,8 +148,11 @@ const SearchResult = () => {
                                 {/* <div className="card" style={{width : "18rem"}}> */}
                                     <div className="card-body">
                                         <div className="card-text">
-                                            <a href={`${album.albumUrl}`} style= {{textDecoration : "none"}} target="_blank" rel="noreferrer">                                        
-                                            {makeImageTag(album.albumImageUrl)}
+                                            <a href={`${album.albumUrl}`} style= {{textDecoration : "none"}} target="_blank" rel="noreferrer">  
+                                                <div className="albums-img">
+                                                    {makeImageTag(album.albumImageUrl)}
+                                                    <span>Check the details on Apple Music</span>
+                                                </div>                                      
                                             </a>
                                             <p className="text"><span>{album.albumName}-{album.albumReleaseDate}</span></p>
                                         </div>
@@ -176,8 +183,11 @@ const SearchResult = () => {
                                 {/* <div className="card" style={{width : "18rem"}}> */}
                                     <div className="card-body">
                                         <div className="card-text">
-                                            <a href={`${playlist.playlistUrl}`} style= {{textDecoration : "none", }} target="_blank"   rel="noreferrer">                                        
-                                                {makeImageTag(playlist.playlistImageUrl)}
+                                            <a href={`${playlist.playlistUrl}`} style= {{textDecoration : "none", }} target="_blank"   rel="noreferrer">                               
+                                                <div className="playlists-img">
+                                                    {makeImageTag(playlist.playlistImageUrl)}
+                                                    <span>Check the details on Apple Music</span>
+                                                </div>             
                                             </a>
                                             <p className="text"><span>{playlist.playlistName}</span></p>
                                         </div>
@@ -208,7 +218,10 @@ const SearchResult = () => {
                                 <div className="card-body">
                                         <div className="card-text">
                                             <a href={`${musicVideo.videoPreviewUrl}`} style= {{textDecoration : "none"}} target="_blank" rel="noreferrer">
-                                                {makeVideoImageTag(musicVideo.videosImageUrl)}
+                                                <div className="videos-img">
+                                                    {makeVideoImageTag(musicVideo.videosImageUrl)}
+                                                    <span>Video Preview</span>
+                                                </div>
                                             </a>
                                             <p className="text">
                                                 <a href={`${musicVideo.videoUrl}`} style={{textDecoration : "none"}} target="_blank" rel="noreferrer"><span>{musicVideo.videoName}</span></a>

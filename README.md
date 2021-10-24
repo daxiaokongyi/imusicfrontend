@@ -15,8 +15,18 @@ It allows user to search music information, be able to add a song to his/her own
 
 * Front test files created in the src folder; type jest to test the front-end.
 * Back test files created in the folder of helpers, middleware, models, routes, and backend; type jest to test the back-end.
+* Running test: npm run test
 
-## User Flow
+## Install the packages
+* npm install
+
+## Create Database
+* DROP DATABASE music;
+* CREATE DATABASE music;
+* \connect music
+* \i music-schema.sql
+
+## Implementation
 
 * Database includes three tables: users, songs, favorites (relation between users and songs).
 * Users table includes username, first name, last name, email, and password; songs table includes song's ID given by Apple Music Api, name of the aritst and song, and genre names. favorites table includes username from users table and song's id from songs table.
@@ -41,6 +51,6 @@ It allows user to search music information, be able to add a song to his/her own
     Javascript, HTML, CSS, React, Redux, PostgreSQL, BootStrap, JWT, schema, Jest
 
 ### Github link: 
-    https://github.com/daxiaokongyi/capstoneTwo
+    https://github.com/daxiaokongyi/imusicfrontend
 ### API: 
     https://developer.apple.com/documentation/applemusicapi/

@@ -16,12 +16,12 @@ import {
 
 import formatErrs from './formatUserErrMessages';
 
-const API_URL = "http://localhost:3001";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 // action for adding a new user
 export const sendSignupToAPI = (username, password, firstName, lastName, email) => {
     return async function (dispatch) {  
-        await axios.post(`${API_URL}/auth/register`, {
+        await axios.post(`${BASE_URL}/auth/register`, {
             username,
             password,
             firstName,
@@ -66,7 +66,7 @@ const getSignupErrors = (errorMessage) => {
 // action for signning in
 export const sendSigninToAPI = (username, password) => {
     return async function (dispatch) {
-        await axios.post(`${API_URL}/auth/token`, {
+        await axios.post(`${BASE_URL}/auth/token`, {
             username,
             password
         }).then(
@@ -108,7 +108,7 @@ export const logout = () => {
 // action for getting current user 
 export const getCurrentUser = (username, token) => {
     return async function (dispatch) {
-        const result = await axios.get(`${API_URL}/users/${username}`, {
+        const result = await axios.get(`${BASE_URL}/users/${username}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -130,7 +130,7 @@ const getUser = (user, token) => {
 // action for editting current use
 export const sendEditToAPI = (username, updatedUserData, token) => {
     return async function (dispatch) {
-        await axios.patch(`${API_URL}/users/${username}`, updatedUserData, {
+        await axios.patch(`${BASE_URL}/users/${username}`, updatedUserData, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -168,7 +168,7 @@ const getEditErrors = (errorMessage) => {
 // add a song as favorite
 export const addSongToFavorite =(songId, songName, songArtistName, genreNames, username, token) => {
     return async function (dispatch) {
-        await axios.post(`${API_URL}/users/${username}/songs/${songId}`, {
+        await axios.post(`${BASE_URL}/users/${username}/songs/${songId}`, {
             songName,
             songArtistName,
             genreNames
@@ -208,7 +208,7 @@ export const addFavoriteError = (addFavErrs) => {
 // remove a song from user's favorited list
 export const removeSongFromFavorite = (username, songId, token) => {
     return async function (dispatch) {
-        await axios.delete(`${API_URL}/users/${username}/songs/${songId}`, {
+        await axios.delete(`${BASE_URL}/users/${username}/songs/${songId}`, {
             headers: {
                 'Authorization':`Bearer ${token}`
             }

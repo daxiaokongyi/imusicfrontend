@@ -23,15 +23,13 @@ const SearchResult = () => {
         dispatch(fetchSongsFromAPI(searchTerm));
     }, [searchTerm, dispatch]);
 
-    if (fetchResult.songs.length === 0) {
-        return <LoadingSpinner/>
-    }
-
     // handle result if input format is wrong or not found 
     if (fetchSongsErrs === 'Request path contains unescaped characters') { 
         history.push('/notfound');
     } else if (notfound && notfound.notfound !== '') {
         return <h3 className="not-found">Your search cannot be found! Please try again!</h3>
+    } else if (fetchResult.songs.length === 0) {
+        return <LoadingSpinner/>
     }
 
     const songs = fetchResult.songs;
@@ -58,12 +56,6 @@ const SearchResult = () => {
         url = url.replace(/\{(h)\}/g, IMAGE_H_DIMS);
         return <img src={url} alt="url" className="videoImage"/>
     }
-
-    // if (isLoading) {
-    //     return (
-    //         <LoadingSpinner/>
-    //     )
-    // }
 
     return (
         <div className="container">

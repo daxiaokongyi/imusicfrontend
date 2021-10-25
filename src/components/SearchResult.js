@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useSelector } from 'react-redux';
 import {NavLink, useLocation, useHistory} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -13,7 +13,6 @@ const SearchResult = () => {
     const IMAGE_H_DIMS = 150;
     const history = useHistory();
     const dispatch = useDispatch();
-    const [isLoading, setIsLoading] = useState(true);
     const search = useLocation().search;
     const searchTerm = new URLSearchParams(search).get('term');
     const fetchResult = useSelector(store => store.songs);
@@ -22,8 +21,11 @@ const SearchResult = () => {
 
     useEffect(() => {
         dispatch(fetchSongsFromAPI(searchTerm));
-        setIsLoading(false);
     }, [searchTerm, dispatch]);
+
+    if (fetchResult.songs.length === 0) {
+        return <LoadingSpinner/>
+    }
 
     // handle result if input format is wrong or not found 
     if (fetchSongsErrs === 'Request path contains unescaped characters') { 
@@ -57,11 +59,11 @@ const SearchResult = () => {
         return <img src={url} alt="url" className="videoImage"/>
     }
 
-    if (isLoading) {
-        return (
-            <LoadingSpinner/>
-        )
-    }
+    // if (isLoading) {
+    //     return (
+    //         <LoadingSpinner/>
+    //     )
+    // }
 
     return (
         <div className="container">

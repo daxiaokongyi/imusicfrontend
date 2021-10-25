@@ -5,7 +5,8 @@ const Home = () => {
     return(
         <div className="home">
             <div className="text-field">
-                <h1>Welcome To I-Music</h1>
+                <h4>Welcome to</h4>
+                <h4><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>   I-Music</h4>
             </div>
         </div>
     )

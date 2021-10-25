@@ -8,6 +8,6 @@ describe('render Home component', () => {
     }); 
     test('return welcome to i-music', () => {
         const display = render(<Home/>);
-        display.getByText('Welcome To I-Music');
+        display.getByText('Welcome to');
     })
 })

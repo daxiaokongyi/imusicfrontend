@@ -19,5 +19,4 @@ describe('render Navbar component', () => {
         )
         expect(getByText('I-Music')).toBeInTheDocument();
     })
-
 })

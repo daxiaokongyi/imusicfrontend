@@ -8,6 +8,8 @@ import {BrowserRouter} from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.css";
 import "@fortawesome/fontawesome-free/css/all.css";
+// import "../node_modules/jquery/dist/jquery.min.js";
+import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 
 import {PersistGate} from "redux-persist/integration/react";
 import {Provider} from 'react-redux';

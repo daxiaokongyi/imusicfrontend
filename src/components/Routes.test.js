@@ -17,7 +17,7 @@ describe('routes', () => {
                 <Routes/>
             </MemoryRouter>
         );
-        const result = getByText('Welcome To I-Music');
+        const result = getByText('Welcome to');
         expect(result).toBeInTheDocument();
     })
 });

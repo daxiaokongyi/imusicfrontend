@@ -1,4 +1,16 @@
-import {FETCH_SONGS, LOG_OUT, GET_SONG_DETAIL, FAV_BUTTON_CLICKED, GET_ALL_ARTISTS, GET_ALL_SONGS, GET_ALL_ALBUMS, GET_ALL_PLAYLISTS, GET_ALL_VIDEOS, GET_SONGS_ERRORS, CLEAR_SONGS_ERRORS
+import {
+    FETCH_SONGS, 
+    LOG_OUT, 
+    GET_SONG_DETAIL, 
+    FAV_BUTTON_CLICKED, 
+    GET_ALL_ARTISTS, 
+    GET_ALL_SONGS, 
+    GET_ALL_ALBUMS, 
+    GET_ALL_PLAYLISTS,  
+    GET_ALL_VIDEOS, 
+    GET_SONGS_ERRORS, 
+    CLEAR_SONGS_ERRORS,
+    CLEAR_PREVIOUS_SONGS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -50,6 +62,8 @@ export default function songsReducer(state=INITIAL_STATE, action) {
             return {...state, getSongsErrors: data}
         case CLEAR_SONGS_ERRORS:
             return {...state, getSongsErrors: ''}
+        case CLEAR_PREVIOUS_SONGS:
+            return {...state, songs:[]}
         default:
             return state
     }

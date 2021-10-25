@@ -10,7 +10,8 @@ import {
     GET_ALL_PLAYLISTS, 
     GET_ALL_VIDEOS,
     GET_SONGS_ERRORS,
-    CLEAR_SONGS_ERRORS
+    CLEAR_SONGS_ERRORS,
+    CLEAR_PREVIOUS_SONGS,
 } from '../actions/types';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
@@ -18,6 +19,9 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 // get songs based on song's name 
 export function fetchSongsFromAPI(searchTerm) {
     return async function (dispatch) {
+        // ====================== dispatch reset songs to {} , null .... 
+        // clean the previous songs
+        dispatch(cleanPreviousSongs());
         await axios.get(`${BASE_URL}/applemusic/songs/${searchTerm}`
             ).then (
                 result => {
@@ -28,6 +32,12 @@ export function fetchSongsFromAPI(searchTerm) {
                     return dispatch(getSongInfoError(err.response.data.error.message));
                 }
             )
+    }
+}
+
+function cleanPreviousSongs() {
+    return {
+        type: CLEAR_PREVIOUS_SONGS
     }
 }
 

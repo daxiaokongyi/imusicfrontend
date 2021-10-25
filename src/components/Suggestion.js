@@ -1,12 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 import { useSelector } from 'react-redux';
-import LoadingSpinner from '../common/LoadingSpinner';
 import { useHistory } from 'react-router-dom';
 
 const Suggestion = () => {
     const history = useHistory();
     const genreRecommendArray = useSelector(st => st.users.user.favoriteSongs);     
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
     let genreNameSelected = genreRecommendArray && genreRecommendArray.length !== 0 ? genreRecommendArray[genreRecommendArray.length - 1][3] : 'singer';
 
     // check if the current genren name includes forward slash, /
@@ -21,14 +20,9 @@ const Suggestion = () => {
         if (genreNameSelected) {
             getSuggestionSongs(genreNameSelected);
         }
-        setIsLoading(false);
     },[genreNameSelected, history]);
 
-    if (isLoading) {
-        return (
-            <LoadingSpinner/>
-        )
-    }
+    return(null);
 }
 
 export default Suggestion;
